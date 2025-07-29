@@ -83,7 +83,7 @@ docker pull dmun1/quote-scraper:multi-stage
 - This command runs the container and maps port 8080 on your machine to the container's port 8080.
 
 ```
-docker run -p 8080:8080 dmun1/quote-scraper:multi-stage
+docker run -p 8080:8080 dmun1/quote-scraper:latest
 ```
 
 - Then visit the endpoint in your browser: http://localhost:8080/daily-quotes
