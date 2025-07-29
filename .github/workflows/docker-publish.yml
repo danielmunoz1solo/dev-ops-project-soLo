@@ -15,6 +15,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Verify that go.mod and go.sum are in sync
+      - name: Verify Dependencies
+        run: |
+          go mod tidy
+          if [[ -n $(git status -s) ]]; then
+            echo "go.mod/go.sum are out of sync. Please run 'go mod tidy' and commit the changes."
+            exit 1
+          fi
+
       # Step 2: Log in to Docker Hub
       - name: Log in
         uses: docker/login-action@v3
