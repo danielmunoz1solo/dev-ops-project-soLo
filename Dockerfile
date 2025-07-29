@@ -1,3 +1,4 @@
+# local dockerfile as template
 # multi stage setup for decreased file size, golang as builder
 FROM golang:1.24-alpine AS builder
 
