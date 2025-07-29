@@ -1,7 +1,7 @@
 package server
 import (
 	"encoding/json"
-	"fmt"
+	"log"
 	"net/http"
 
 	"dev_ops_th/scraper"
@@ -24,6 +24,9 @@ func StartServer() {
 		}
 	})
 
-	http.ListenAndServe(":8080", nil)
-	fmt.Println("Server started at http://localhost:8000/daily-quotes")
+	log.Println("Starting server on port 8080")
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		log.Fatalf("Server failed to start: %v", err)
+	}
 }

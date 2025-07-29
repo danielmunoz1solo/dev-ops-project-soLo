@@ -5,7 +5,7 @@ Go Quote Scraper API
 This project scrapes the first 100 quotes from https://quotes.toscrape.com
 and exposes them via a local JSON API endpoint at:
 ```
-http://localhost:8080/quotes
+http://localhost:8080/dail-quotes
 ```
 
 This project utilizes the Go web-scraping framework [Colly](https://github.com/gocolly/colly)
