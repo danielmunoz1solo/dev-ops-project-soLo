@@ -71,14 +71,22 @@ quote-scraper.exe    (Windows)
 - Once it's running, visit: http://localhost:8080/daily-quotes
 #### OPTION 2: Run using Docker
 
-If you have Docker installed, you can run the app without installing anything else.
+If you have Docker installed, you can run the app without building from source. Pull the pre-built image from Docker Hub and run it.
+
+**Step 1: Pull the image**
+
+```bash
+docker pull dmun1/quote-scraper:multi-stage
 ```
-docker run -p 8080:8080 SETUP WITH MY DOCKER REGISTRY
+
+**Step 2: Run the container
+- This command runs the container and maps port 8080 on your machine to the container's port 8080.
+
 ```
-Then visit:
+docker run -p 8080:8080 dmun1/quote-scraper:multi-stage
 ```
-http://localhost:8080/daily-quotes
-```
+
+- Then visit the endpoint in your browser: http://localhost:8080/daily-quotes
 
 ## Project Structure
 

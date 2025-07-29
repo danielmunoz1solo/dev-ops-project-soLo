@@ -1,18 +1,25 @@
-FROM golang:1.24-alpine
+# multi stage setup for decreased file size, golang as builder
+FROM golang:1.24-alpine AS builder
 
 WORKDIR /app
 
-# Copy all files into the container's /app directory
+# layer caching
+COPY go.mod go.sum ./
+RUN go mod download
+
 COPY . .
 
-# Download the dependencies listed in go.mod/go.sum
-RUN go mod tidy
+# build for alpine linux, no build to C used
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /app/quote-scraper .
 
-# Build the Go application inside the container
-RUN go build -o /quote-scraper .
+# runner
+FROM alpine:latest
 
-# Expose the port that your server runs on
+WORKDIR /app
+
+# copy only compiled file to keep size minimum
+COPY --from=builder /app/quote-scraper .
+
 EXPOSE 8080
 
-# The command to run when the container starts
-CMD ["/quote-scraper"]
+CMD ["./quote-scraper"]
