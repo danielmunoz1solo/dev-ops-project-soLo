@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"dev_ops_th/scraper"
+	"github.com/danielmunoz1solo/dev-ops-project-soLo/scraper"
 )
 
 func StartServer() {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/gocolly/colly"
-	"dev_ops_th/quotes"
+	"github.com/danielmunoz1solo/dev-ops-project-soLo/quotes"
 )
 
 func ScrapeQuotes() ([]quotes.Quote, error) {

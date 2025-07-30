@@ -1,6 +1,6 @@
 package main
 
-import "dev_ops_th/server"
+import "github.com/danielmunoz1solo/dev-ops-project-soLo/server"
 
 func main() {
 	server.StartServer()

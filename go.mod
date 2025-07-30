@@ -1,4 +1,4 @@
-module dev_ops_th
+module github.com/danielmunoz1solo/dev-ops-project-soLo
 
 go 1.23.10
 

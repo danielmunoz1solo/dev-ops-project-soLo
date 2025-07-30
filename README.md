@@ -1,11 +1,9 @@
 Go Quote Scraper API
 =====================
-## Work in Progress
-
 This project scrapes the first 100 quotes from https://quotes.toscrape.com
 and exposes them via a local JSON API endpoint at:
 ```
-http://localhost:8080/dail-quotes
+http://localhost:8080/daily-quotes
 ```
 
 This project utilizes the Go web-scraping framework [Colly](https://github.com/gocolly/colly)
@@ -14,29 +12,23 @@ This project utilizes the Go web-scraping framework [Colly](https://github.com/g
 
 ## Requirements:
 
-- Git **(for cloning the repository)**
-- Internet access to reach the quotes website
-- Go 1.18 or higher installed [(install)](https://go.dev/dl/) **(Only if building from source)**
-## How to Run From Source
+- Internet access to reach the quotes endpoint
 
-#### Step 1: Clone the repository
+## Runing my service using Go
+
+### OPTION 1: Clone the repository
 ```
 git clone https://github.com/danielmunoz1solo/dev-ops-project-soLo.git
 cd dev-ops-project-soLo
 ```
-- OR just download the ZIP file from GitHub and extract it.
+- Or just download the ZIP file from GitHub and extract it.
 
-#### Run the server
-
-##### Option 1: Run main.go directly from the root path of the repository using:
+Then start the server by running:
 ```
 go run main.go
 ```
 
-##### Option 2: Build to binary:
-```
-go build -o quote-scraper.exe
-```
+### Option 2: Pull the go module:
 
 Run the executable:
 ```
@@ -50,9 +42,9 @@ http://localhost:8080/daily-quotes
 ```
 **Press Ctrl+C to stop the server**
 
-## How to Run Without Installing Go (TODO: setup releases page + docker)
+## How to Run Without Installing Go (TODO: setup releases page)
 
-##### OPTION 1: Download the prebuilt executable
+### OPTION 1: Download the prebuilt executable
 
 Visit the GitHub Releases page:
 
@@ -69,27 +61,29 @@ Then run it from your terminal:
 quote-scraper.exe    (Windows)
 ```
 - Once it's running, visit: http://localhost:8080/daily-quotes
-#### OPTION 2: Run using Docker
 
-If you have Docker installed, you can run the app without building from source. Pull the pre-built image from Docker Hub and run it.
 
-**Step 1: Pull the image**
+### OPTION 2: Run using Docker
 
+If you have Docker installed, you can run the app without building from source. Pull the pre-built image from Docker Hub and run it. 
+
+- Or follow the instructions to install:
+    - [Docker Engine](https://docs.docker.com/engine/install/) - lightweight command-line interface tool for running Docker containers. Recommended for Linux distributions or developers who prefer terminal-based workflows.
+    - [Docker Desktop](https://docs.docker.com/get-started/get-docker/) - application that includes Docker Engine, a GUI dashboar and integrated Kubernetes. Recommended for most local development environments.
+
+Then pull the image using:
 ```bash
-docker pull dmun1/quote-scraper:multi-stage
+docker pull dmun1/quote-scraper:latest
 ```
 
-**Step 2: Run the container
 - This command runs the container and maps port 8080 on your machine to the container's port 8080.
-
 ```
 docker run -p 8080:8080 dmun1/quote-scraper:latest
 ```
 
-- Then visit the endpoint in your browser: http://localhost:8080/daily-quotes
+And finally, visit the endpoint in your browser at: http://localhost:8080/daily-quotes
 
 ## Project Structure
-
 
     main.go         - Entry point
     scraper/        - Web scraper using Colly
