@@ -42,7 +42,7 @@ http://localhost:8080/daily-quotes
 ```
 **Press Ctrl+C to stop the server**
 
-## How to Run Without Installing Go (TODO: setup releases page)
+## How to Run Without Installing Go (TODO: setup releases page with github actions)
 
 ### OPTION 1: Download the prebuilt executable
 
