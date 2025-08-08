@@ -1,4 +1,4 @@
-Go Quote Scraper API
+Go Quote Scraper
 =====================
 This project scrapes the first 100 quotes from https://quotes.toscrape.com
 and exposes them via a local JSON API endpoint at:
@@ -14,7 +14,7 @@ This project utilizes the Go web-scraping framework [Colly](https://github.com/g
 
 - Internet access to reach the quotes endpoint
 
-## Runing my service using Go
+## Running my service using Go
 
 ### OPTION 1: Clone the repository
 ```
@@ -28,7 +28,9 @@ Then start the server by running:
 go run main.go
 ```
 
-### Option 2: Pull the go module:
+### Option 2: Install the go module:
+
+First install my module using
 
 Run the executable:
 ```
@@ -42,25 +44,29 @@ http://localhost:8080/daily-quotes
 ```
 **Press Ctrl+C to stop the server**
 
-## How to Run Without Installing Go (TODO: setup releases page with github actions)
+## How To Run My Service Without Installing Go
 
 ### OPTION 1: Download the prebuilt executable
 
 Visit the GitHub Releases page:
+```
+https://github.com/danielmunoz1solo/dev-ops-project-soLo/releases
+```
 
-    https://github.com/danielmunoz1solo/dev-ops-project-soLo/releases
+And download the appropriate file for your system:
+```
+quote-scraper-linux-amd64
+quote-scraper-windows-amd64
+quote-scraper-darwin-arm64 (macOS with M1/M2 chips)
+```
 
-Download the appropriate file for your system:
-
-- macOS/Linux:   [quote-scraper]()
-- Windows:       [quote-scraper.exe]()
-
-Then run it from your terminal:
+Then navigate to the folder in which you downloaded it and run the file from your terminal:
 ```
 ./quote-scraper      (Linux/macOS)
 quote-scraper.exe    (Windows)
 ```
-- Once it's running, visit: http://localhost:8080/daily-quotes
+
+- After running the file, visit the endpoint at: http://localhost:8080/daily-quotes
 
 
 ### OPTION 2: Run using Docker
@@ -69,7 +75,7 @@ If you have Docker installed, you can run the app without building from source. 
 
 - Or follow the instructions to install:
     - [Docker Engine](https://docs.docker.com/engine/install/) - lightweight command-line interface tool for running Docker containers. Recommended for Linux distributions or developers who prefer terminal-based workflows.
-    - [Docker Desktop](https://docs.docker.com/get-started/get-docker/) - application that includes Docker Engine, a GUI dashboar and integrated Kubernetes. Recommended for most local development environments.
+    - [Docker Desktop](https://docs.docker.com/get-started/get-docker/) - application that includes Docker Engine, a GUI dashboard and integrated Kubernetes. Recommended for most local development environments.
 
 Then pull the image using:
 ```bash
